@@ -8,6 +8,7 @@ body {
     height: 100vh;
     background-color: beige;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -28,3 +29,77 @@ body {
     padding: 20px;
     flex-wrap: wrap;
 }
+
+/**** Controls ****/
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+label {
+    font-weight: 400;
+}
+
+#colorPicker {
+    border: none;
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: beige;
+    padding: 20px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out 0s;
+}
+
+button:hover {
+    background-color: beige;
+    color: black;
+    border: 2px solid black;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: beige;
+    color: orangered;
+    border: 2px solid black;
+    transform: scale(1.05);
+}
+
+button:focus {
+    background-color: orangered;
+    color: black;
+    border: 2px solid black;
+    /* transform: scale(1); */
+}
+
+.controls div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    font-weight: 400;
+}
+
+input[type="range"] {
+    -webkit-appearance: none !important;
+    background: black;
+    height:10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+  }
