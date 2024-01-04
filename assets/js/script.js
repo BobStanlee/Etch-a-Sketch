@@ -2,7 +2,6 @@
 const gridContainer = document.querySelector(".grid-container");
 
 // Creating And Populating Grid Container with Square Div
-
 function CreateSquareDiv(grid = 5) {
 
     for (let i = 1; i <= (grid * grid); i++) {
@@ -15,11 +14,35 @@ function CreateSquareDiv(grid = 5) {
         
         squareDiv.style.width = `${100 / grid}%`;
         squareDiv.style.height = `${100 / grid}%`;
-        squareDiv.style.backgroundColor = "red";
+        squareDiv.style.backgroundColor = "beige";
         squareDiv.style.border = "1px solid black";
         
         gridContainer.appendChild(squareDiv);
     }
 }
 
+// Activate Populating Grid with squares
 CreateSquareDiv();
+
+// Change Color of Square div when a mouse hovers over it
+function changeColorHover(color="black") {
+    // Get all squares
+    let squares = document.querySelectorAll(".square");
+    
+    // loop through
+    squares.forEach(function(square) {
+        // listen for a mouse enter
+        square.addEventListener("mouseenter", () => {
+            // change the background color
+            square.style.backgroundColor = color;
+        })
+
+        // listen for a mouse leave
+        square.addEventListener("mouseleave", () => {
+            // change the background color
+            square.style.backgroundColor = color;
+        })
+    })
+}
+
+changeColorHover();
