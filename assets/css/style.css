@@ -90,7 +90,7 @@ button:focus {
 }
 
 input[type="range"] {
-    -webkit-appearance: none !important;
+    -webkit-appearance: none;
     background: black;
     height:10px;
 }
