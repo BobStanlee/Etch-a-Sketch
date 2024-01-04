@@ -73,11 +73,11 @@ button:active {
     transform: scale(1.05);
 }
 
-button:focus {
+.focus {
     background-color: orangered;
     color: black;
     border: 2px solid black;
-    /* transform: scale(1); */
+    transform: scale(1.05);
 }
 
 .controls div {

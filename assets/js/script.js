@@ -40,7 +40,6 @@ function changeColorHover(color="black") {
     // Get all squares
     let squares = document.querySelectorAll(".square");
     
-    console.log(color);
     // loop through
     squares.forEach(function(square) {
         // listen for a mouse enter
@@ -73,3 +72,22 @@ function updatecolor() {
 
 //update color
 updatecolor();
+
+//Change button to focus mode when click
+function changeToFocus() {
+    let btns = document.getElementsByTagName('button');
+    console.log(btns);
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function() {
+            // Remove 'focus' class from all buttons
+            for (let j = 0; j < btns.length; j++) {
+                btns[j].classList.remove('focus');
+            }
+
+            // Add 'focus' class to the clicked button
+            this.classList.add('focus');
+        });
+    }
+}
+
+changeToFocus();
