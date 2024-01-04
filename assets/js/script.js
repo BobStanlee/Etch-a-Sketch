@@ -1,3 +1,14 @@
+// --------- CONTROLS -------------
+
+let colorPicker = document.getElementById('colorPicker'),
+    colorMode = document.getElementById('colorMode'),
+    RandomMode = document.getElementById('randomColor'),
+    eraser = document.getElementById('eraser'),
+    reset = document.getElementById('reset'),
+    showGridValue = document.getElementById('showGridValue'),
+    range = document.getElementById('gridValue');
+
+
 // Grid Container Variable
 const gridContainer = document.querySelector(".grid-container");
 
@@ -29,6 +40,7 @@ function changeColorHover(color="black") {
     // Get all squares
     let squares = document.querySelectorAll(".square");
     
+    console.log(color);
     // loop through
     squares.forEach(function(square) {
         // listen for a mouse enter
@@ -45,4 +57,19 @@ function changeColorHover(color="black") {
     })
 }
 
+//change color
 changeColorHover();
+
+//Get ColorPicker color value
+function updatecolor() {
+    // Listen for a change in color
+    colorPicker.addEventListener('input', function(event) {
+        // Assign color Picker value to color
+        let color = event.target.value;
+        // update color in changeColorHover Functionality
+        changeColorHover(color);
+    })
+}
+
+//update color
+updatecolor();
