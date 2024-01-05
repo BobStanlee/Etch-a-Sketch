@@ -11,8 +11,14 @@ let colorPicker = document.getElementById("colorPicker"),
 //get all buttons into a HTML collection
 let btns = document.getElementsByTagName("button");
 
+// Selected color;
+let color = "";
+
 //buttonState
 let buttonState = "";
+
+//Range value
+let rangeValue = 0;
 
 // Grid Container Variable
 const gridContainer = document.querySelector(".grid-container");
@@ -65,7 +71,6 @@ changeColorHover();
 
 //Get ColorPicker color value
 function updatecolor(buttonState) {
-    let color = "";
 
     // Listen for a change in color
     colorPicker.addEventListener("input", function (event) {
@@ -91,6 +96,9 @@ function updatecolor(buttonState) {
       allSquares.forEach(function(square) {
         square.style.backgroundColor = 'beige';
       })
+
+      //change color
+      changeColorHover(color);
     }
 }
 
@@ -120,3 +128,30 @@ function changeToFocus() {
 }
 
 changeToFocus();
+
+// function to get grid value
+function getGridValue() {
+  // listen for a click on the range input
+  range.addEventListener('click', () => {
+    rangeValue = range.value;
+    
+    // Update Grid Text Content
+    showGridValue.textContent = `${rangeValue} X ${rangeValue}`;
+
+    // Update Grid in grid-container
+    const squareDivsToRemove = gridContainer.querySelectorAll('.square'); // Select all square divs
+
+    squareDivsToRemove.forEach(function(squareDiv) {
+      squareDiv.parentNode.removeChild(squareDiv); // Remove each square div from its parent
+    });
+
+    // Call the Create new square div
+    CreateSquareDiv(rangeValue);
+
+    //change color
+    changeColorHover();
+  })
+}
+
+// call the Get Grid Value
+getGridValue();
