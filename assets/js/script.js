@@ -24,7 +24,7 @@ let rangeValue = 0;
 const gridContainer = document.querySelector(".grid-container");
 
 // Creating And Populating Grid Container with Square Div
-function CreateSquareDiv(grid = 5) {
+function CreateSquareDiv(grid = 16) {
   for (let i = 1; i <= grid * grid; i++) {
     // Create Square Div
     let squareDiv = document.createElement("div");
@@ -36,7 +36,7 @@ function CreateSquareDiv(grid = 5) {
     squareDiv.style.width = `${100 / grid}%`;
     squareDiv.style.height = `${100 / grid}%`;
     squareDiv.style.backgroundColor = "beige";
-    squareDiv.style.border = "1px solid black";
+    // squareDiv.style.border = "1px solid black";
 
     gridContainer.appendChild(squareDiv);
   }
@@ -131,6 +131,8 @@ changeToFocus();
 
 // function to get grid value
 function getGridValue() {
+  // update showGridValues
+
   // listen for a click on the range input
   range.addEventListener('click', () => {
     rangeValue = range.value;
