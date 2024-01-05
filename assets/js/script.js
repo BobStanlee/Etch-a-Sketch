@@ -82,6 +82,16 @@ function updatecolor(buttonState) {
         //update color in chageColorHover Functionality
         changeColorHover(color);
     }
+
+    else if (buttonState === "reset") {
+      // Get all Square Divs
+      let allSquares = document.querySelectorAll('.square');
+      
+      // change each square div backgroud color
+      allSquares.forEach(function(square) {
+        square.style.backgroundColor = 'beige';
+      })
+    }
 }
 
 //update color
