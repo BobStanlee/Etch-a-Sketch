@@ -8,6 +8,12 @@ let colorPicker = document.getElementById('colorPicker'),
     showGridValue = document.getElementById('showGridValue'),
     range = document.getElementById('gridValue');
 
+//get all buttons into a HTML collection
+let btns = document.getElementsByTagName('button');
+
+//buttonState
+let buttonState = "";
+
 
 // Grid Container Variable
 const gridContainer = document.querySelector(".grid-container");
@@ -60,7 +66,7 @@ function changeColorHover(color="black") {
 changeColorHover();
 
 //Get ColorPicker color value
-function updatecolor() {
+function updatecolor(buttonState) {
     // Listen for a change in color
     colorPicker.addEventListener('input', function(event) {
         // Assign color Picker value to color
@@ -75,9 +81,10 @@ updatecolor();
 
 //Change button to focus mode when click
 function changeToFocus() {
-    let btns = document.getElementsByTagName('button');
-    console.log(btns);
+    
+    // loop through the HTML collection
     for (let i = 0; i < btns.length; i++) {
+        //listen to each button for a click
         btns[i].addEventListener('click', function() {
             // Remove 'focus' class from all buttons
             for (let j = 0; j < btns.length; j++) {
@@ -86,6 +93,9 @@ function changeToFocus() {
 
             // Add 'focus' class to the clicked button
             this.classList.add('focus');
+
+            // Update Button Status
+            buttonState = this.id;
         });
     }
 }
